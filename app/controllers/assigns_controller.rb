@@ -30,8 +30,8 @@ class AssignsController < ApplicationController
     if assigned_user == assign.team.owner
       I18n.t('views.messages.cannot_delete_the_leader')
     elsif Assign.where(user_id: assigned_user.id).count == 1
-      I18n.t('views.messages.cannot_delete_only_a_member')
-    elsif current_user == assign.team.owner|| current_user== assigned_user
+      I18n.t('views.messages.cannot_delete_only_a_member') 
+    elsif current_user == assign.team.owner.id|| current_user== assigned_user.id
       assign.destroy
       set_next_team(assign, assigned_user)
       I18n.t('views.messages.delete_member')

@@ -40,6 +40,7 @@ class TeamsController < ApplicationController
   end
 
   def destroy
+    if current_user.keep_team_id? || current_user.id?
     @team.destroy
     redirect_to teams_url, notice: I18n.t('views.messages.delete_team')
   end
