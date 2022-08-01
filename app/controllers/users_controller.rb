@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       redirect_to user_path, notice: I18n.t('views.messages.update_profile')
-    else
+    elsez
       render 'edit'
     end
   end
