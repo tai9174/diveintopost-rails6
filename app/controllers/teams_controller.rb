@@ -60,6 +60,6 @@ class TeamsController < ApplicationController
 
   def ensure_owner
     set_team
-    redirect_to teams_path, notice: 'チームリーダーのみ編集可能です' if @team.owner != current_user
+    redirect_to teams_path, notice: 'オーナーのみ編集可能です' if @team.owner != current_user
   end
 end
